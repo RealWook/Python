@@ -142,6 +142,7 @@ def update():
         up_order = input("수정하실 주문정보를 입력하세요 : ") #수정 할 주문정보를 받는다.
         cursor.execute("UPDATE tblCustomer SET ADDR = '%s' , THINGS = '%s' WHERE NAME = '%s' AND BIRTH = '%s'" %(up_addr,up_order,up_name,up_birth))
         # execute메소드를 통해 sql명령문 실행한다.
+        con.commit()
         print()
         print("수정이 완료되었습니다 !")
         print()
@@ -170,6 +171,7 @@ def delete():
 
         if(key == 1): #삭제를 선택하면
             cursor.execute("DELETE FROM tblCustomer WHERE NAME = '%s' and BIRTH = '%s'" %(de_name,de_birth)) #execute메소드를 통해 sql명령문 실행한다.
+            con.commit()
             print()
             print("삭제가 완료되었습니다 !")
             print()
